@@ -10,11 +10,41 @@
         android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_employeeFragment"
-            app:destination="@+id/employeeFragment" />
+            app:destination="@id/employeeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_newEmployeeFragment"
+            app:destination="@id/newEmployeeFragment" />
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
         android:name="com.magotecnologia.calculadoranomina.ui.employee.EmployeeFragment"
         android:label="employee_fragment"
-        tools:layout="@layout/employee_fragment" />
+        tools:layout="@layout/employee_fragment">
+        <action
+            android:id="@+id/action_employeeFragment_to_employeeMonthReportFragment"
+            app:destination="@id/employeeMonthReportFragment" />
+        <action
+            android:id="@+id/action_employeeFragment_to_noveltyFragment"
+            app:destination="@id/noveltyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newEmployeeFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.employee.newEmployeeFragment"
+        android:label="fragment_new_employee"
+        tools:layout="@layout/fragment_new_employee">
+        <action
+            android:id="@+id/action_newEmployeeFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeMonthReportFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.employee.EmployeeMonthReportFragment"
+        android:label="fragment_employee_month_report"
+        tools:layout="@layout/fragment_employee_month_report" />
+    <fragment
+        android:id="@+id/noveltyFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.novelty.NoveltyFragment"
+        android:label="fragment_novelty"
+        tools:layout="@layout/fragment_novelty" />
 </navigation>
