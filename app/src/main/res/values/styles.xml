@@ -13,6 +13,24 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="FormFields" parent="AppTheme">
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginStart">40dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <style name="FormFields.Edit" parent="FormFields">
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <item name="android:maxLength">30</item>
+    </style>
+
+    <style name="FormFields.Text" parent="FormFields">
+
+    </style>
+
+    <style name="Buttons" parent="AppTheme">
+
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

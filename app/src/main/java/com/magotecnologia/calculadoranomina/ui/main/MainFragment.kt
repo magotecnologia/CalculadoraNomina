@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import com.google.android.material.snackbar.Snackbar
 import com.magotecnologia.calculadoranomina.R
 import kotlinx.android.synthetic.main.main_fragment.*
 
@@ -25,15 +24,12 @@ class MainFragment : Fragment() {
     ): View {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         return inflater.inflate(R.layout.main_fragment, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fab.setOnClickListener { button ->
-            Snackbar.make(button, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-            val action = MainFragmentDirections.actionMainFragmentToEmployeeFragment()
+            val action = MainFragmentDirections.actionMainFragmentToNewEmployeeFragment()
             Navigation.findNavController(view).navigate(action)
         }
     }

@@ -22,6 +22,6 @@ class EmployeeRepository(application: Application) {
     fun getAllEmployees(): List<Employee> =
         EmployeeMapper().ListEntityToDomain(employeeDao.getOrderedEmployeeList())
 
-    fun saveEmployee(employee: Employee) =
+    suspend fun saveEmployee(employee: Employee) =
         employeeDao.insert(EmployeeMapper().DomainToEntity(employee))
 }

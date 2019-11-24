@@ -26,6 +26,7 @@ class EmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(EmployeeViewModel::class.java)
+
     }
 
 }

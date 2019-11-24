@@ -4,4 +4,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Data del empleado -->
+    <string name="employee_name">Nombres</string>
+    <string name="employee_lastname">Apellidos</string>
+    <string name="employee_dni">Numero de Identificación</string>
+    <string name="employee_phone">Telefono</string>
+    <string name="employee_position">Cargo</string>
+    <string name="employee_salary">Salario mensual</string>
+
+
+    <!-- Botones -->
+    <string name="button_confirm">Aceptar</string>
 </resources>

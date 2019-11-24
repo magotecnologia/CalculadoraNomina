@@ -14,6 +14,7 @@ buildscript {
         room_version= '2.2.2'
         coil_version= '0.8.0'
         legacy_support='1.0.0'
+        coroutine_version='1.0.32'
     }
     repositories {
         google()

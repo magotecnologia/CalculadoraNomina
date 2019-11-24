@@ -12,7 +12,7 @@ import com.magotecnologia.calculadoranomina.data.Entities.EmployeeEntity
 @Dao
 interface EmployeeDao {
     @Insert
-    fun insert(employee: EmployeeEntity)
+    suspend fun insert(employee: EmployeeEntity)
 
     @Update
     fun update(vararg employee: EmployeeEntity)

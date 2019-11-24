@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/newEmployeeFragment"
-        android:name="com.magotecnologia.calculadoranomina.ui.employee.newEmployeeFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.employee.NewEmployeeFragment"
         android:label="fragment_new_employee"
         tools:layout="@layout/fragment_new_employee">
         <action
