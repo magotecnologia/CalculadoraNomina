@@ -16,5 +16,6 @@ class Employee(
     val id: Int = 0,
     val photoPath: String? = null
 ) {
+    var novelties = mutableListOf<Novelty>()
 
 }

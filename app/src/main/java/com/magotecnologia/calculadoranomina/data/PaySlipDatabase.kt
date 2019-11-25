@@ -6,17 +6,23 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.magotecnologia.calculadoranomina.data.Daos.EmployeeDao
+import com.magotecnologia.calculadoranomina.data.Daos.NoveltyDao
 import com.magotecnologia.calculadoranomina.data.Entities.EmployeeEntity
+import com.magotecnologia.calculadoranomina.data.Entities.NoveltyEntity
 
 /**
  * Created by Marco-Laptop on 22/11/2019.
  */
 
-@Database(entities = [EmployeeEntity::class], exportSchema = true, version = 1)
+@Database(
+    entities = [EmployeeEntity::class, NoveltyEntity::class],
+    exportSchema = true,
+    version = 1
+)
 @TypeConverters(DateConverter::class)
 abstract class PaySlipDatabase : RoomDatabase() {
     abstract val employeeDao: EmployeeDao
-
+    abstract val noveltyDao: NoveltyDao
     companion object {
 
         private const val DATABASE_NAME = "PAYSLIP"

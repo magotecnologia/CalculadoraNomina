@@ -50,5 +50,12 @@
         android:id="@+id/noveltyFragment"
         android:name="com.magotecnologia.calculadoranomina.ui.novelty.NoveltyFragment"
         android:label="fragment_novelty"
-        tools:layout="@layout/fragment_novelty" />
+        tools:layout="@layout/fragment_novelty">
+        <argument
+            android:name="employeeId"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+    </fragment>
 </navigation>

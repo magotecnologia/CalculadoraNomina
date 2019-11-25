@@ -1,4 +1,4 @@
-package com.magotecnologia.calculadoranomina.data
+package com.magotecnologia.calculadoranomina.data.Mappers
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
@@ -12,7 +12,7 @@ import com.magotecnologia.calculadoranomina.domain.Employee
 
 
 class EmployeeMapper {
-    fun DomainToEntity(employee: Employee): EmployeeEntity {
+    fun domainToEntity(employee: Employee): EmployeeEntity {
         val entity =
             EmployeeEntity(
                 Dni = employee.Dni,
@@ -27,7 +27,7 @@ class EmployeeMapper {
         return entity
     }
 
-    fun EntityToDomain(employeeEntity: EmployeeEntity) =
+    fun entityToDomain(employeeEntity: EmployeeEntity) =
         Employee(
             Dni = employeeEntity.Dni,
             firstName = employeeEntity.firstName,
@@ -39,12 +39,21 @@ class EmployeeMapper {
             photoPath = employeeEntity.photoPath
         )
 
-    fun ListEntityToDomain(entityList: List<EmployeeEntity>) =
+    fun entityListToDomain(entityList: List<EmployeeEntity>) =
         entityList.map { employee ->
-            EntityToDomain(employee)
+            entityToDomain(employee)
         }
 
-    fun LiveListEntityToDomain(entityList: LiveData<List<EmployeeEntity>>) =
-        Transformations.map(entityList) { ListEntityToDomain(it) }
+    fun entityLiveDataToDomain(entityList: LiveData<List<EmployeeEntity>>) =
+        Transformations.map(entityList) { entityListToDomain(it) }
+
+    fun employeeAndNoveltiesToDomain(employeeAndNovelties: EmployeeAndNovelties): Employee? =
+        employeeAndNovelties.employee?.let { employeeEntity ->
+            entityToDomain(employeeEntity).apply {
+                employeeAndNovelties.novelties?.let {
+                    this.novelties = NoveltyMapper().entityListToDomain(it).toMutableList()
+                }
+            }
+        }
 
 }

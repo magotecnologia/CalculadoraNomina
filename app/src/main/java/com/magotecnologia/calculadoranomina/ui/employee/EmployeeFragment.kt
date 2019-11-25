@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.magotecnologia.calculadoranomina.R
 import kotlinx.android.synthetic.main.employee_fragment.*
 
@@ -25,8 +26,8 @@ class EmployeeFragment : Fragment() {
         return inflater.inflate(R.layout.employee_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(EmployeeViewModel::class.java)
         viewModel.employeeData.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -41,7 +42,15 @@ class EmployeeFragment : Fragment() {
         arguments?.let {
             val employeeId = EmployeeFragmentArgs.fromBundle(it).employeeId
             viewModel.getEmployeeData(employeeId)
+            fab.setOnClickListener { button ->
+                val action = EmployeeFragmentDirections.actionEmployeeFragmentToNoveltyFragment(
+                    employeeId,
+                    11
+                )
+                Navigation.findNavController(view).navigate(action)
+            }
         }
+
 
     }
 

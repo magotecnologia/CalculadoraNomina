@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.novelty.NoveltyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    <TextView
+        android:id="@+id/noveltyTypeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/novelty_type"
+        android:theme="@style/FormFields.Text"
+        android:layout_marginStart="@dimen/form_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/noveltyType" />
 
-</FrameLayout>
+        <Spinner
+            android:id="@+id/noveltyType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/noveltyValueText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noveltyTypeText" />
+
+        <TextView
+            android:id="@+id/noveltyValueText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/novelty_value_hours"
+            android:theme="@style/FormFields.Text"
+            app:layout_constraintBottom_toTopOf="@id/noveltyValueEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noveltyType" />
+
+        <EditText
+            android:id="@+id/noveltyValueEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/FormFields.Edit"
+            app:layout_constraintTop_toBottomOf="@id/noveltyValueText"
+            app:layout_constraintBottom_toTopOf="@id/newNoveltyConfirmButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/newNoveltyConfirmButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_confirm"
+            android:theme="@style/FormFields.Text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noveltyValueEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
