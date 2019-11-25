@@ -13,7 +13,8 @@ class Employee(
     var position: String = "",
     val salary: Int = 0,
     val phoneNumber: String? = null,
-    val id: Int = 0
+    val id: Int = 0,
+    val photoPath: String? = null
 ) {
 
 }

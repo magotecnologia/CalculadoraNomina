@@ -15,18 +15,21 @@ interface EmployeeDao {
     suspend fun insert(employee: EmployeeEntity)
 
     @Update
-    fun update(vararg employee: EmployeeEntity)
+    suspend fun update(vararg employee: EmployeeEntity)
 
     @Delete
-    fun delete(vararg employee: EmployeeEntity)
+    suspend fun delete(vararg employee: EmployeeEntity)
 
     @Query("SELECT * FROM " + EmployeeEntity.TABLE_NAME + " ORDER BY " + EmployeeEntity.DNI_COLUMN_NAME)
     fun getOrderedEmployeeListLive(): LiveData<List<EmployeeEntity>>
 
     @Query("SELECT * FROM " + EmployeeEntity.TABLE_NAME + " ORDER BY " + EmployeeEntity.DNI_COLUMN_NAME)
-    fun getOrderedEmployeeList(): List<EmployeeEntity>
+    suspend fun getOrderedEmployeeList(): List<EmployeeEntity>
 
     @Query("SELECT * FROM " + EmployeeEntity.TABLE_NAME + " WHERE " + EmployeeEntity.DNI_COLUMN_NAME + " =:dni")
-    fun getEmployeeByDNI(dni: Int): EmployeeEntity
+    suspend fun getEmployeeByDNI(dni: Int): EmployeeEntity
+
+    @Query("SELECT * FROM " + EmployeeEntity.TABLE_NAME + " WHERE " + EmployeeEntity.ID_COLUMN_NAME + " =:id")
+    suspend fun getEmployeeById(id: Int): EmployeeEntity
 
 }

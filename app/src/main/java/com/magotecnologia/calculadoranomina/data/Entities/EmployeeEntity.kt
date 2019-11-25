@@ -33,7 +33,10 @@ data class EmployeeEntity(
     val salary: Int = 0,
 
     @ColumnInfo(name = PHONE_COLUMN_NAME)
-    val phoneNumber: String? = null
+    val phoneNumber: String? = null,
+
+    @ColumnInfo(name = PHOTO_COLUMN_NAME)
+    val photoPath: String? = null
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = ID_COLUMN_NAME)
@@ -48,5 +51,6 @@ data class EmployeeEntity(
         const val PHONE_COLUMN_NAME = "PHONE_NUMBER"
         const val POSITION_COLUMN_NAME = "POSITION"
         const val SALARY_COLUMN_NAME = "SALARY"
+        const val PHOTO_COLUMN_NAME = "PHOTO_PATH"
     }
 }

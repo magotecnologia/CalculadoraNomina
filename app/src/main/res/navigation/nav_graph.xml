@@ -27,6 +27,10 @@
         <action
             android:id="@+id/action_employeeFragment_to_noveltyFragment"
             app:destination="@id/noveltyFragment" />
+        <argument
+            android:name="employeeId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/newEmployeeFragment"

@@ -1,14 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.employee.EmployeeFragment"
     android:background="@color/colorPrimary">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
 
-</FrameLayout>
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:columnCount="2"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_name"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:id="@+id/employeeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_name"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_lastname"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:id="@+id/employeeLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_lastname"
+            android:theme="@style/FormFields.Edit" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_dni"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:id="@+id/employeeDni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_dni"
+            android:theme="@style/FormFields.Edit" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_phone"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:id="@+id/employeePhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_phone"
+            android:theme="@style/FormFields.Edit" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_position"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:id="@+id/employeePosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_position"
+            android:theme="@style/FormFields.Edit" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_salary"
+            android:theme="@style/FormFields.Text" />
+
+        <TextView
+            android:id="@+id/employeeSalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_salary"
+            android:theme="@style/FormFields.Edit" />
+    </GridLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

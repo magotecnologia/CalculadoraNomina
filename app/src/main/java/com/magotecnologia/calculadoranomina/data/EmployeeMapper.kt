@@ -19,6 +19,7 @@ class EmployeeMapper {
                 firstName = employee.firstName,
                 lastName = employee.lastName,
                 position = employee.position,
+                photoPath = employee.photoPath,
                 salary = employee.salary,
                 phoneNumber = employee.phoneNumber
             )
@@ -34,7 +35,8 @@ class EmployeeMapper {
             position = employeeEntity.position,
             salary = employeeEntity.salary,
             phoneNumber = employeeEntity.phoneNumber,
-            id = employeeEntity.Id
+            id = employeeEntity.Id,
+            photoPath = employeeEntity.photoPath
         )
 
     fun ListEntityToDomain(entityList: List<EmployeeEntity>) =

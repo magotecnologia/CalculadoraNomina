@@ -16,12 +16,16 @@ class EmployeeRepository(application: Application) {
     private val employeeDao =
         PaySlipDatabase.getInstance(application.applicationContext).employeeDao
 
-    fun getAllEmployeesLive(): LiveData<List<Employee>> =
+    suspend fun getAllEmployeesLive(): LiveData<List<Employee>> =
         EmployeeMapper().LiveListEntityToDomain(employeeDao.getOrderedEmployeeListLive())
 
-    fun getAllEmployees(): List<Employee> =
+    suspend fun getAllEmployees(): List<Employee> =
         EmployeeMapper().ListEntityToDomain(employeeDao.getOrderedEmployeeList())
 
     suspend fun saveEmployee(employee: Employee) =
         employeeDao.insert(EmployeeMapper().DomainToEntity(employee))
+
+    suspend fun getEmployeeByDNI(employeeId: Int) = employeeDao.getEmployeeByDNI(employeeId)
+    suspend fun getEmployeeById(employeeId: Int) =
+        EmployeeMapper().EntityToDomain(employeeDao.getEmployeeById(employeeId))
 }
