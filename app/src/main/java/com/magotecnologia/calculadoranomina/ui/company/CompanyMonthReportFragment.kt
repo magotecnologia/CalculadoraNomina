@@ -1,5 +1,4 @@
-package com.magotecnologia.calculadoranomina.ui.employee
-
+package com.magotecnologia.calculadoranomina.ui.company
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,26 +8,28 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.magotecnologia.calculadoranomina.R
+import com.magotecnologia.calculadoranomina.ui.changeVisibility
 import com.magotecnologia.calculadoranomina.ui.toMoneyString
 import kotlinx.android.synthetic.main.fragment_employee_month_report.*
 
-/**
- * A simple [Fragment] subclass.
- */
-class EmployeeMonthReportFragment : Fragment() {
+class CompanyMonthReportFragment : Fragment() {
 
-    private lateinit var viewModel: EmployeeMonthReportViewModel
+    companion object {
+        fun newInstance() = CompanyMonthReportFragment()
+    }
+
+    private lateinit var viewModel: CompanyMonthReportViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_employee_month_report, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(EmployeeMonthReportViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(CompanyMonthReportViewModel::class.java)
         viewModel.billingDetails.observe(viewLifecycleOwner, Observer {
             earnedSubtotal.text = it.earns.total.toMoneyString()
             basicSalary.text = it.earns.basicSalary.toMoneyString()
@@ -45,11 +46,7 @@ class EmployeeMonthReportFragment : Fragment() {
             netTotal.text = (it.earns.total - it.deductions.total).toMoneyString()
         })
         setClickListeners()
-        arguments?.let {
-            val employeeId = EmployeeMonthReportFragmentArgs.fromBundle(it).employeeId
-            viewModel.getEmployeeData(employeeId = employeeId)
-        }
-
+        viewModel.getCompanyData()
 
     }
 
@@ -59,7 +56,4 @@ class EmployeeMonthReportFragment : Fragment() {
     }
 
 
-    fun View.changeVisibility() {
-        this.visibility = if (this.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-    }
 }

@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_mainFragment_to_newEmployeeFragment"
             app:destination="@id/newEmployeeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_companyMonthReportFragment"
+            app:destination="@id/companyMonthReportFragment" />
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
@@ -45,7 +48,14 @@
         android:id="@+id/employeeMonthReportFragment"
         android:name="com.magotecnologia.calculadoranomina.ui.employee.EmployeeMonthReportFragment"
         android:label="fragment_employee_month_report"
-        tools:layout="@layout/fragment_employee_month_report" />
+        tools:layout="@layout/fragment_employee_month_report">
+        <argument
+            android:name="employeeId"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/noveltyFragment"
         android:name="com.magotecnologia.calculadoranomina.ui.novelty.NoveltyFragment"
@@ -58,4 +68,24 @@
             android:name="month"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/companyMonthReportFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.company.CompanyMonthReportFragment"
+        android:label="company_month_report_fragment"
+        tools:layout="@layout/company_month_report_fragment" />
+    <fragment
+        android:id="@+id/companyReductionsFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.company.CompanyReductionsFragment"
+        android:label="company_reductions_fragment"
+        tools:layout="@layout/company_reductions_fragment" />
+    <fragment
+        android:id="@+id/companySocialBenefits"
+        android:name="com.magotecnologia.calculadoranomina.ui.company.CompanySocialBenefitsFragment"
+        android:label="company_social_benefits_fragment"
+        tools:layout="@layout/company_social_benefits_fragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.magotecnologia.calculadoranomina.ui.accounting.RegisterFragment"
+        android:label="register_fragment"
+        tools:layout="@layout/register_fragment" />
 </navigation>

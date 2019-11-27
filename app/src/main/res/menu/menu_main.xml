@@ -3,9 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.magotecnologia.calculadoranomina.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/companyMonthReportFragment"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/menu_nomina"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/companyReductionsFragment"
+        android:orderInCategory="100"
+        android:title="@string/menu_contribution"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/companySocialBenefits"
+        android:orderInCategory="100"
+        android:title="@string/menu_social_benefits"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/registerFragment"
+        android:orderInCategory="100"
+        android:title="@string/menu_accounting_register"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/clearDatabase"
+        android:orderInCategory="100"
+        android:title="@string/"
+        app:showAsAction="never" />
+
 
 </menu>

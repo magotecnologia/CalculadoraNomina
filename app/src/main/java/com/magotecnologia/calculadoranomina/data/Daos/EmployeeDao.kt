@@ -36,4 +36,6 @@ interface EmployeeDao {
     @Query("SELECT * FROM " + EmployeeEntity.TABLE_NAME + " WHERE " + EmployeeEntity.ID_COLUMN_NAME + " =:id")
     suspend fun getEmployeeAndNoveltiesById(id: Int): EmployeeAndNovelties
 
+    @Query("SELECT * FROM " + EmployeeEntity.TABLE_NAME)
+    suspend fun getAllEmployeeAndNovelties(): List<EmployeeAndNovelties>
 }

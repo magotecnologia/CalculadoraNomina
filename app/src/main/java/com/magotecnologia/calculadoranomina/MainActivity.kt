@@ -5,20 +5,25 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.facebook.stetho.Stetho
+import com.magotecnologia.calculadoranomina.data.PaySlipDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = findNavController(this, R.id.nav_host_fragment)
         Stetho.initializeWithDefaults(this)
+        //setupActionBarWithNavController(this, navController)
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -27,12 +32,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        if (item.itemId == R.id.clearDatabase) {
+            clearDatabase()
+            return false
         }
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            navController
+        ) || super.onOptionsItemSelected(item)
+
     }
+
+    private fun clearDatabase() {
+        PaySlipDatabase.getInstance(context = this).clearAllTables()
+    }
+
+
 }

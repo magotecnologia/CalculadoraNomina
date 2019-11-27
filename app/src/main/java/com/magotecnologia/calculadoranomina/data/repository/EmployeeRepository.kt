@@ -33,4 +33,7 @@ class EmployeeRepository(application: Application) {
         EmployeeMapper().employeeAndNoveltiesToDomain(
             employeeDao.getEmployeeAndNoveltiesById(employeeId)
         )
+
+    suspend fun getAllEmploteeFull(): List<Employee?> =
+        EmployeeMapper().employeeAndNoveltiesListToDomain(employeeDao.getAllEmployeeAndNovelties())
 }

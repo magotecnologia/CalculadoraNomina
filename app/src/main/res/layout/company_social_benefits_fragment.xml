@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.company.CompanySocialBenefitsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title2"
+                android:text="@string/social_benefits_layoff" />
+
+            <TextView
+                android:id="@+id/layoff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title2"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title2"
+                android:text="@string/social_benefits_layoff_interest" />
+
+            <TextView
+                android:id="@+id/layoffInterest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title2"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title2"
+                android:text="@string/social_benefits_social_bonus" />
+
+            <TextView
+                android:id="@+id/socialBonus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title2"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title2"
+                android:text="@string/social_benefits_vacations" />
+
+            <TextView
+                android:id="@+id/vacations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title2"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

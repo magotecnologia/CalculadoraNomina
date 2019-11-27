@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.magotecnologia.calculadoranomina.R
+import com.magotecnologia.calculadoranomina.ui.toMoneyString
 import kotlinx.android.synthetic.main.employee_fragment.*
 
 class EmployeeFragment : Fragment() {
@@ -33,10 +34,10 @@ class EmployeeFragment : Fragment() {
             it?.let {
                 employeeName.text = it.firstName
                 employeeLastName.text = it.lastName
-                employeeDni.text = it.Dni.toString()
+                employeeDni.text = it.Dni.toMoneyString()
                 employeePhone.text = it.phoneNumber
                 employeePosition.text = it.position
-                employeeSalary.text = it.salary.toString()
+                employeeSalary.text = it.salary.toMoneyString()
             }
         })
         arguments?.let {
@@ -47,6 +48,13 @@ class EmployeeFragment : Fragment() {
                     employeeId,
                     11
                 )
+                Navigation.findNavController(view).navigate(action)
+            }
+            bill.setOnClickListener { billButton ->
+                val action =
+                    EmployeeFragmentDirections.actionEmployeeFragmentToEmployeeMonthReportFragment(
+                        employeeId = employeeId, month = 11
+                    )
                 Navigation.findNavController(view).navigate(action)
             }
         }

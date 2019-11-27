@@ -29,6 +29,17 @@
 
     </style>
 
+    <style name="FormFields.Title" parent="FormFields">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="FormFields.Title2" parent="FormFields">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
     <style name="Buttons" parent="AppTheme">
 
     </style>

@@ -56,4 +56,6 @@ class EmployeeMapper {
             }
         }
 
+    fun employeeAndNoveltiesListToDomain(employeeAndNovelties: List<EmployeeAndNovelties>): List<Employee?> =
+        employeeAndNovelties.map { it -> employeeAndNoveltiesToDomain(it) }
 }

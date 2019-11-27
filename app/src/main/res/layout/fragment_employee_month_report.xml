@@ -1,9 +1,295 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.employee.EmployeeMonthReportFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/earnedSubtotalContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title"
+                android:text="@string/billing_earnedSubtotal" />
+
+            <TextView
+                android:id="@+id/earnedSubtotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/earnedDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_basic_salary" />
+
+                <TextView
+                    android:id="@+id/basicSalary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_transportation_allowance" />
+
+                <TextView
+                    android:id="@+id/transportationAllowance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_extra_time" />
+
+                <TextView
+                    android:id="@+id/extraTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_bonus" />
+
+                <TextView
+                    android:id="@+id/bonus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_commissions" />
+
+                <TextView
+                    android:id="@+id/commissions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/reductionsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title"
+                android:text="@string/billing_reductions" />
+
+            <TextView
+                android:id="@+id/reductionsSubtotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/reductionsDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_health_reduction" />
+
+                <TextView
+                    android:id="@+id/healthReduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_pension_reduction" />
+
+                <TextView
+                    android:id="@+id/pensionReduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_loan_reduction" />
+
+                <TextView
+                    android:id="@+id/loanReduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_foreclosure_reduction" />
+
+                <TextView
+                    android:id="@+id/foreClosureReduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/FormFields.Title2"
+                    android:text="@string/billing_employee_fund_reduction" />
+
+                <TextView
+                    android:id="@+id/employeeFundReduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/FormFields.Title2"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/FormFields.Title"
+                android:text="@string/billing_net_value" />
+
+            <TextView
+                android:id="@+id/netTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/FormFields.Title"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

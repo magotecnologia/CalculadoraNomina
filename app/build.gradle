@@ -21,9 +21,9 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
             }
         }
 
@@ -58,6 +58,9 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktx_version"
 
     //Testing
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"

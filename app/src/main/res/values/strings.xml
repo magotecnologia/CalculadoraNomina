@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">CalculadoraNomina</string>
-    <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Items del menu -->
+    <string name="menu_nomina">Nómina total</string>
+    <string name="menu_contribution">Aportes de la empresa</string>
+    <string name="menu_social_benefits">Prestaciones sociales</string>
+    <string name="menu_accounting_register">Registro contable</string>
+    <string name="menu_clear_database">Limpiar</string>
 
     <!--Data del empleado -->
     <string name="employee_name">Nombres</string>
@@ -18,6 +20,36 @@
     <string name="novelty_type">Tipo de novedad</string>
     <string name="novelty_value_hours">Horas</string>
     <string name="novelty_value_money">Valor $</string>
+
+    <!--Datos de la descripcion de comprobante-->
+    <string name="billing_earnedSubtotal">Devengado</string>
+    <string name="billing_basic_salary">Salario Básico</string>
+    <string name="billing_transportation_allowance">Subsidio</string>
+    <string name="billing_extra_time">Horas Extras</string>
+    <string name="billing_bonus">Bonificaciones</string>
+    <string name="billing_commissions">Comisiones</string>
+    <string name="billing_reductions">Deducciones</string>
+    <string name="billing_health_reduction">Salud</string>
+    <string name="billing_pension_reduction">Pension</string>
+    <string name="billing_loan_reduction">Prestamos</string>
+    <string name="billing_foreclosure_reduction">Embargos</string>
+    <string name="billing_employee_fund_reduction">Fondo</string>
+    <string name="billing_net_value">Neto a Pagar</string>
+
+
+    <!--Datos de las aportes  -->
+    <string name="contribution_health">Salud</string>
+    <string name="contribution_pension">Pension</string>
+    <string name="contribution_professionalInsurance">ARL</string>
+    <string name="contribution_family_compensation">Caja de Compensación</string>
+    <string name="contribution_family_bienestar">ICBF</string>
+    <string name="contribution_sena">SENA</string>
+
+    <!--Datos de las prestaciones sociales  -->
+    <string name="social_benefits_layoff">Cesantias</string>
+    <string name="social_benefits_layoff_interest">Intereses de Cesantias</string>
+    <string name="social_benefits_social_bonus">Prima de Servicios</string>
+    <string name="social_benefits_vacations">Vacations</string>
 
     <!-- Botones -->
     <string name="button_confirm">Aceptar</string>
