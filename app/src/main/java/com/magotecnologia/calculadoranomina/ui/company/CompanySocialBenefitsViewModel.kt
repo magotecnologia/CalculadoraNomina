@@ -19,17 +19,19 @@ class CompanySocialBenefitsViewModel(application: Application) : AndroidViewMode
         viewModelScope.launch {
             val employees: List<Employee?> = employeeRepository.getAllEmploteeFull()
             val socialBenefitsPre = employees.filterNotNull().map { it.getSocialBenefits() }
-            val socialBenefits = employees.filterNotNull().map { it.getSocialBenefits() }.reduce(
-                operation = { previous, element ->
-                    SocialBenefits(
-                        layoffs = previous.layoffs.plus(element.layoffs),
-                        layoffsInterest = previous.layoffsInterest.plus(element.layoffsInterest),
-                        socialBonus = previous.socialBonus.plus(element.socialBonus),
-                        vacations = previous.vacations.plus(element.vacations)
-                    )
-                }
-            )
-            _billingDetails.postValue(socialBenefits)
+            if (socialBenefitsPre.isNotEmpty()) {
+                val socialBenefits = socialBenefitsPre.reduce(
+                    operation = { previous, element ->
+                        SocialBenefits(
+                            layoffs = previous.layoffs.plus(element.layoffs),
+                            layoffsInterest = previous.layoffsInterest.plus(element.layoffsInterest),
+                            socialBonus = previous.socialBonus.plus(element.socialBonus),
+                            vacations = previous.vacations.plus(element.vacations)
+                        )
+                    }
+                )
+                _billingDetails.postValue(socialBenefits)
+            }
         }
     }
 

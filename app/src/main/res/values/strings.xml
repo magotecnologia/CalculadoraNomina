@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CalculadoraNomina</string>
+    <string name="app_name">Calculadora de Nomina</string>
     <!--Items del menu -->
     <string name="menu_nomina">Nómina total</string>
     <string name="menu_contribution">Aportes de la empresa</string>
@@ -49,7 +49,7 @@
     <string name="social_benefits_layoff">Cesantias</string>
     <string name="social_benefits_layoff_interest">Intereses de Cesantias</string>
     <string name="social_benefits_social_bonus">Prima de Servicios</string>
-    <string name="social_benefits_vacations">Vacations</string>
+    <string name="social_benefits_vacations">Vacaciones</string>
 
     <!-- Botones -->
     <string name="button_confirm">Aceptar</string>

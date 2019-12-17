@@ -26,7 +26,7 @@
             <TextView
                 android:id="@+id/health"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:theme="@style/FormFields.Title2"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -46,7 +46,7 @@
             <TextView
                 android:id="@+id/pension"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:theme="@style/FormFields.Title2"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -66,7 +66,7 @@
             <TextView
                 android:id="@+id/professionalInsurance"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:theme="@style/FormFields.Title2"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -86,7 +86,7 @@
             <TextView
                 android:id="@+id/familyCompensation"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:theme="@style/FormFields.Title2"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -106,7 +106,7 @@
             <TextView
                 android:id="@+id/family_bienestar"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:theme="@style/FormFields.Title2"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -126,7 +126,7 @@
             <TextView
                 android:id="@+id/sena"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:theme="@style/FormFields.Title2"
                 android:layout_weight="1" />
         </LinearLayout>

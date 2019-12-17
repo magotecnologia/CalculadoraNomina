@@ -20,10 +20,12 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch {
             val employees: List<Employee?> = employeeRepository.getAllEmploteeFull()
             val registers = employees.filterNotNull().map { AccountingRegister(it).getRegister() }
-            val total = registers.reduce(operation = { previous, element ->
-                sum(previous, element)
-            })
-            _billingDetails.postValue(total)
+            if (registers.isNotEmpty()) {
+                val total = registers.reduce(operation = { previous, element ->
+                    sum(previous, element)
+                })
+                _billingDetails.postValue(total)
+            }
         }
     }
 

@@ -25,20 +25,35 @@
         <item name="android:maxLength">30</item>
     </style>
 
-    <style name="FormFields.Text" parent="FormFields">
+    <style name="FormFields.Text" parent="FormFields"></style>
 
+    <style name="FormFields.Button" parent="FormFields">
+        <item name="android:textColor">@color/icon_text</item>
+        <item name="android:background">@drawable/button_background</item>
     </style>
 
+    <style name="Accounting1" parent="FormFields">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:background">@drawable/simple_border</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingEnd">1dp</item>
+    </style>
+
+    <style name="Accounting2" parent="FormFields">
+        <item name="android:background">@drawable/simple_border</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingEnd">1dp</item>
+    </style>
     <style name="FormFields.Title" parent="FormFields">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">28sp</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:background">@drawable/simple_border</item>
     </style>
 
     <style name="FormFields.Title2" parent="FormFields">
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@drawable/simple_border</item>
     </style>
     <style name="Buttons" parent="AppTheme">
 

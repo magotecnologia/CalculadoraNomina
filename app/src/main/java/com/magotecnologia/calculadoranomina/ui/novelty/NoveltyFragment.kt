@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -35,8 +36,10 @@ class NoveltyFragment : Fragment() {
         noveltyType.adapter = ArrayAdapter<String>(this.context,
             android.R.layout.simple_spinner_dropdown_item,
             NoveltyType.values().map { it.valueToShow })
-        viewModel.actualPerson.observe(viewLifecycleOwner, Observer {
-            noveltyTypeText.text = it.firstName
+        viewModel.successFullMessage.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                Toast.makeText(this.context, it, Toast.LENGTH_SHORT).show()
+            }
         })
         var employeeId = 0
         var month = 0
@@ -56,6 +59,21 @@ class NoveltyFragment : Fragment() {
             } else {
                 Toast.makeText(this.context, "FALTAN DATOS", Toast.LENGTH_SHORT).show()
             }
+        }
+        noveltyType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedString = noveltyType.getItemAtPosition(position)
+                noveltyValueText.text =
+                    NoveltyType.values().first { it.valueToShow == selectedString }.measureUnit
+            }
+
         }
 
     }

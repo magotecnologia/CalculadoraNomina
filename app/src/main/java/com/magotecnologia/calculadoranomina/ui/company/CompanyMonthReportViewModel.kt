@@ -23,34 +23,36 @@ class CompanyMonthReportViewModel(application: Application) : AndroidViewModel(a
             employee.let {
                 val earns = it.map { employee -> employee?.getEarns() }
                 val reductions = it.map { employee -> employee?.getReductions() }
-                val totalEarns: Earns? = earns.reduce(operation = { previous, element: Earns? ->
-                    Earns(
-                        basicSalary = previous!!.basicSalary.plus(element!!.basicSalary),
-                        allowance = previous.allowance.plus(element.allowance),
-                        extraTime = previous.extraTime.plus(element.extraTime),
-                        bonus = previous.bonus.plus(element.bonus),
-                        commissions = previous.commissions.plus(element.commissions)
-                    )
-
-                })
-                val totalReductions: Reduction? =
-                    reductions.reduce(operation = { previous, element: Reduction? ->
-
-                        Reduction(
-                            health = previous!!.health.plus(element!!.health),
-                            pension = previous.pension.plus(element.pension),
-                            loan = previous.loan.plus(element.loan),
-                            foreClosure = previous.foreClosure.plus(element.foreClosure),
-                            employeeFund = previous.employeeFund.plus(element.employeeFund)
+                if (earns.isNotEmpty() && reductions.isNotEmpty()) {
+                    val totalEarns: Earns? = earns.reduce(operation = { previous, element: Earns? ->
+                        Earns(
+                            basicSalary = previous!!.basicSalary.plus(element!!.basicSalary),
+                            allowance = previous.allowance.plus(element.allowance),
+                            extraTime = previous.extraTime.plus(element.extraTime),
+                            bonus = previous.bonus.plus(element.bonus),
+                            commissions = previous.commissions.plus(element.commissions)
                         )
-                    })
 
-                totalEarns?.let { earns ->
-                    totalReductions?.let { reductions ->
-                        earns.calculateTotal()
-                        reductions.calculateTotal()
-                        val actualBill = Bill(earns, reductions)
-                        _billingDetails.postValue(actualBill)
+                    })
+                    val totalReductions: Reduction? =
+                        reductions.reduce(operation = { previous, element: Reduction? ->
+
+                            Reduction(
+                                health = previous!!.health.plus(element!!.health),
+                                pension = previous.pension.plus(element.pension),
+                                loan = previous.loan.plus(element.loan),
+                                foreClosure = previous.foreClosure.plus(element.foreClosure),
+                                employeeFund = previous.employeeFund.plus(element.employeeFund)
+                            )
+                        })
+
+                    totalEarns?.let { earns ->
+                        totalReductions?.let { reductions ->
+                            earns.calculateTotal()
+                            reductions.calculateTotal()
+                            val actualBill = Bill(earns, reductions)
+                            _billingDetails.postValue(actualBill)
+                        }
                     }
                 }
 

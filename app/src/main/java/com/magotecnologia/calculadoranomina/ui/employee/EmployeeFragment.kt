@@ -34,7 +34,7 @@ class EmployeeFragment : Fragment() {
             it?.let {
                 employeeName.text = it.firstName
                 employeeLastName.text = it.lastName
-                employeeDni.text = it.Dni.toMoneyString()
+                employeeDni.text = it.Dni.toString()
                 employeePhone.text = it.phoneNumber
                 employeePosition.text = it.position
                 employeeSalary.text = it.salary.toMoneyString()

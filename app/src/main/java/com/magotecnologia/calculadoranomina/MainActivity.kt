@@ -10,6 +10,8 @@ import androidx.navigation.ui.NavigationUI
 import com.facebook.stetho.Stetho
 import com.magotecnologia.calculadoranomina.data.PaySlipDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +46,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearDatabase() {
-        PaySlipDatabase.getInstance(context = this).clearAllTables()
+        GlobalScope.launch {
+            PaySlipDatabase.getInstance(context = this@MainActivity).clearAllTables()
+        }
+
     }
 
 

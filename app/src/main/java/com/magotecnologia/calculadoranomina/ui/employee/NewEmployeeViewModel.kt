@@ -10,7 +10,7 @@ class NewEmployeeViewModel(application: Application) : AndroidViewModel(applicat
     private val repository = EmployeeRepository(application)
     private val successFull = MutableLiveData<Boolean>()
     val successFullMessage: LiveData<String> =
-        Transformations.map(successFull) { if (it) "EXITO" else "" }
+        Transformations.map(successFull) { if (it) "EMPLEADO REGISTRADO EXITOSAMENTE" else "" }
 
     fun saveNewEmployee(employeeToCreate: Employee) {
         viewModelScope.launch {

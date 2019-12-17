@@ -1,6 +1,7 @@
 package com.magotecnologia.calculadoranomina.ui.adapters
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,11 @@ class AccountingAdapter(var details: List<AccountingDetail>, private val context
         fun bind(detail: AccountingDetail) {
             //TODO:Apariencia
             // code.setTextAppearance(R.style.)
+            if (detail.level == 1) {
+                setStyle(R.style.Accounting1)
+            } else {
+                setStyle(R.style.Accounting2)
+            }
             //if(detail.code==0) code.visibility=View.INVISIBLE
             code.text = detail.code.toString()
             detailText.text = detail.detail
@@ -62,6 +68,22 @@ class AccountingAdapter(var details: List<AccountingDetail>, private val context
             noCredit.setOnClickListener { subDetails.changeVisibility() }
             isCredit.setOnClickListener { subDetails.changeVisibility() }
         }
+
+        private fun setStyle(style: Int) {
+            if (Build.VERSION.SDK_INT < 23) {
+                code.setTextAppearance(context, style)
+                detailText.setTextAppearance(context, style)
+                isCredit.setTextAppearance(context, style)
+                noCredit.setTextAppearance(context, style)
+            } else {
+                code.setTextAppearance(style)
+                detailText.setTextAppearance(style)
+                isCredit.setTextAppearance(style)
+                noCredit.setTextAppearance(style)
+            }
+        }
+
+
     }
 
 }

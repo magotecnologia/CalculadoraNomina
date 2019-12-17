@@ -1,9 +1,7 @@
 package com.magotecnologia.calculadoranomina.ui.novelty
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.magotecnologia.calculadoranomina.data.repository.EmployeeRepository
 import com.magotecnologia.calculadoranomina.data.repository.NoveltyRepository
 import com.magotecnologia.calculadoranomina.domain.Employee
@@ -23,7 +21,10 @@ class NoveltyViewModel(application: Application) : AndroidViewModel(application)
 
     private val employeeRepository = EmployeeRepository(application)
     private val noveltyRepository = NoveltyRepository(application)
-    val actualPerson = MutableLiveData<Employee>()
+
+    private val successFull = MutableLiveData<Boolean>()
+    val successFullMessage: LiveData<String> =
+        Transformations.map(successFull) { if (it) "NOVEDAD REGISTRADA EXITOSAMENTE" else "" }
 
     fun saveNovelty(employeeId: Int, month: Int, value: Int, type: String) {
 
@@ -38,7 +39,7 @@ class NoveltyViewModel(application: Application) : AndroidViewModel(application)
                 reportDate = Date()
             )
             noveltyRepository.saveNovelty(novelty)
-            actualPerson.postValue(employeeRepository.getEmployeeFullByIdAndMonth(employeeId))
+            successFull.postValue(true)
         }
 
     }

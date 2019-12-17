@@ -20,19 +20,22 @@ class CompanyReductionsViewModel(application: Application) : AndroidViewModel(ap
     fun getCompanyData() {
         viewModelScope.launch {
             val employees: List<Employee?> = employeeRepository.getAllEmploteeFull()
-            val contribution = employees.filterNotNull().map { it.getCompanyReduction() }.reduce(
-                operation = { previous, element ->
-                    CompanyContribution(
-                        health = previous.health.plus(element.health),
-                        pension = previous.pension.plus(element.pension),
-                        professionalInsurance = previous.professionalInsurance.plus(element.professionalInsurance),
-                        familyCompensation = previous.familyCompensation.plus(element.familyCompensation),
-                        familyBienestar = previous.familyBienestar.plus(element.familyBienestar),
-                        Sena = previous.Sena.plus(element.Sena)
-                    )
-                }
-            )
-            _billingDetails.postValue(contribution)
+            val contributions = employees.filterNotNull().map { it.getCompanyReduction() }
+            if (contributions.isNotEmpty()) {
+                val contribution = contributions.reduce(
+                    operation = { previous, element ->
+                        CompanyContribution(
+                            health = previous.health.plus(element.health),
+                            pension = previous.pension.plus(element.pension),
+                            professionalInsurance = previous.professionalInsurance.plus(element.professionalInsurance),
+                            familyCompensation = previous.familyCompensation.plus(element.familyCompensation),
+                            familyBienestar = previous.familyBienestar.plus(element.familyBienestar),
+                            Sena = previous.Sena.plus(element.Sena)
+                        )
+                    }
+                )
+                _billingDetails.postValue(contribution)
+            }
         }
     }
 }
